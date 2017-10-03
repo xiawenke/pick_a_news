@@ -1,3 +1,10 @@
+<h3><b><u>免责协议：</u></b></h3><br>
+<b>**您在阅读网页正文时，就表明您一同意该免责协议。**</b><br>
+1.网页的内容来自BBC News（bbc.com），网页正文的版权以及解释权归BBC所有，同时网页正文内容的观点及立场并不代表网站开发者的观点和立场。<br>
+2.网页纯属用于交流学习，切忌将网页用于非法用途或违背道德的用途。<br>
+3.不正确使用网站所造成的后果，开发者将一概不负责任！<br>
+**若您对以上协议有任何异议，请不要继续往下阅读，并关闭网页，谢谢支持！**<br>
+--------------------分割线（以下为正文）--------------------------<br>
 <?php
 function section($section,$document){
     if($section=="hot"){
@@ -60,6 +67,39 @@ function get_news_countent($html){
             $pattern =  '/<p class="story-body__introduction">(.*?)<p/';
             if(preg_match_all($pattern, $content, $matches)){
                 echo($matches[1][0]."</br>");
+                
+                
+                $pattern =  '/<p>(.*?)<a/';
+                if(preg_match_all($pattern, $content, $matches)){
+                    echo($matches[1][0]."</br>");
+                }
+                else{
+                $pattern =  '/<p>(.*?)<strong/';
+                if(preg_match_all($pattern, $content, $matches)){
+                    echo($matches[1][0]."</br>");
+                }
+                else{
+                $pattern =  '/<p>(.*?)<div/';
+                if(preg_match_all($pattern, $content, $matches)){
+                    echo($matches[1][0]."</br>");
+                }
+                else{
+                $pattern =  '/<p>(.*?)<lu/';
+                if(preg_match_all($pattern, $content, $matches)){
+                    echo($matches[1][0]."</br>");
+                }
+                else{
+                    $pattern =  '/<p>(.*?)<img/';
+                    if(preg_match_all($pattern, $content, $matches)){
+                        echo($content);
+                    }
+                }
+                }
+            }
+            }
+            }
+            else{
+                ////////////////////////
             }
         }
         else{
